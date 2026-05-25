@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>AI Result</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="result-box">
+
+    <h1>CareVision AI Analysis</h1>
+
+    <h2>Patient: {{ patient_name }}</h2>
+
+    <div class="{{ color }}">
+
+        <h1>{{ result }}</h1>
+
+    </div>
+
+    <h3>Risk Probability: {{ probability }}%</h3>
+
+    <h3>Confidence Score: {{ confidence }}%</h3>
+
+    <h3>Severity Level: {{ severity }}</h3>
+
+    <div class="ai-box">
+
+        <h2>Explainable AI</h2>
+
+        <p>{{ ai_reason }}</p>
+
+    </div>
+
+    <div class="ai-box">
+
+        <h2>Medical Advice</h2>
+
+        <p>{{ advice }}</p>
+
+    </div>
+
+    <p>
+        Report Generated:
+        {{ timestamp }}
+    </p>
+
+    <a href="/">
+        <button>Return Home</button>
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neuro Disease Prediction</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            background:#020617;
+            font-family:Arial;
+            color:white;
+        }
+
+        .container{
+            display:flex;
+            min-height:100vh;
+        }
+
+        .left{
+            width:40%;
+            background:#0f172a;
+            padding:40px;
+        }
+
+        .right{
+            width:60%;
+            padding:40px;
+        }
+
+        h1{
+            text-align:center;
+            color:#38bdf8;
+            margin-bottom:30px;
+        }
+
+        .card{
+            background:#1e293b;
+            padding:20px;
+            border-radius:10px;
+            margin-bottom:20px;
+        }
+
+        .card h2{
+            color:#60a5fa;
+        }
+
+        .card p{
+            color:#cbd5e1;
+            line-height:1.8;
+        }
+
+        form{
+            background:#1e293b;
+            padding:30px;
+            border-radius:15px;
+        }
+
+        input{
+            width:100%;
+            padding:14px;
+            margin-top:12px;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:15px;
+            margin-top:20px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+
+        .accuracy{
+            background:#0f766e;
+            padding:15px;
+            border-radius:10px;
+            margin-top:20px;
+            text-align:center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left">
+
+        <h1>Parkinson Risk Analysis</h1>
+
+        <div class="card">
+
+            <h2>About Parkinson’s Disease</h2>
+
+            <p>
+                Parkinson’s disease is a neurological disorder that affects
+                movement, speech, and balance. Early prediction helps improve
+                treatment and patient care.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Medical Risk Information</h2>
+
+            <p>
+                • More than 10 million people worldwide live with Parkinson’s disease.<br><br>
+
+                • Voice frequency abnormalities are early indicators.<br><br>
+
+                • Early diagnosis improves treatment effectiveness.<br><br>
+
+                • AI prediction systems help support faster screening.
+            </p>
+
+        </div>
+
+        <div class="accuracy">
+            AI Model Accuracy: <b>84.6%</b>
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right">
+
+        <h1>Parkinson Prediction</h1>
+
+        <form action="/predict_neuro" method="POST">
+
+            <input type="text"
+            name="fo"
+            placeholder="MDVP Fo (Fundamental Frequency)"
+            required>
+
+            <input type="text"
+            name="fhi"
+            placeholder="MDVP Fhi"
+            required>
+
+            <input type="text"
+            name="flo"
+            placeholder="MDVP Flo"
+            required>
+
+            <input type="text"
+            name="jitter"
+            placeholder="Jitter"
+            required>
+
+            <input type="text"
+            name="shimmer"
+            placeholder="Shimmer"
+            required>
+
+            <input type="text"
+            name="hnr"
+            placeholder="HNR"
+            required>
+
+            <input type="text"
+            name="rpde"
+            placeholder="RPDE"
+            required>
+
+            <input type="text"
+            name="dfa"
+            placeholder="DFA"
+            required>
+
+            <button type="submit">
+                Predict Parkinson Disease
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

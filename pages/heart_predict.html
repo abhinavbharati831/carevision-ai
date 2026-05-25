@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Heart Prediction</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>AI Heart Disease Prediction</h1>
+
+    <img src="{{ url_for('static', filename='ecg.gif') }}"
+    class="ecg">
+
+    <form action="/predict_heart" method="POST">
+
+        <input type="text"
+        name="name"
+        placeholder="Patient Name"
+        required>
+
+        <input type="text"
+        name="age"
+        placeholder="Age"
+        required>
+
+        <select name="sex">
+
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+            <option value="2">Other</option>
+
+        </select>
+
+        <input type="text"
+        name="cp"
+        placeholder="Chest Pain Type"
+        required>
+
+        <input type="text"
+        name="trestbps"
+        placeholder="Blood Pressure"
+        required>
+
+        <input type="text"
+        name="chol"
+        placeholder="Cholesterol"
+        required>
+
+        <input type="text"
+        name="fbs"
+        placeholder="Fasting Sugar"
+        required>
+
+        <input type="text"
+        name="restecg"
+        placeholder="ECG Results"
+        required>
+
+        <input type="text"
+        name="thalach"
+        placeholder="Heart Rate"
+        required>
+
+        <input type="text"
+        name="exang"
+        placeholder="Exercise Angina"
+        required>
+
+        <input type="text"
+        name="oldpeak"
+        placeholder="Old Peak"
+        required>
+
+        <input type="text"
+        name="slope"
+        placeholder="Slope"
+        required>
+
+        <input type="text"
+        name="ca"
+        placeholder="CA"
+        required>
+
+        <input type="text"
+        name="thal"
+        placeholder="Thal"
+        required>
+
+        <button type="submit">
+            Analyze Heart Risk
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

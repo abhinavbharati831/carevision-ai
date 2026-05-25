@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>CareVision AI Dashboard</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:#020617;
+    color:white;
+    font-family:Arial;
+}
+
+.dashboard{
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    margin-bottom:40px;
+}
+
+.card{
+    flex:1;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(56,189,248,0.3);
+}
+
+.card h2{
+    color:#cbd5e1;
+}
+
+.card p{
+    font-size:45px;
+    color:#38bdf8;
+}
+
+.analytics{
+    display:flex;
+    gap:30px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.chart-box{
+    width:400px;
+    height:400px;
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(56,189,248,0.2);
+}
+
+.analysis-box{
+    width:400px;
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(124,58,237,0.3);
+}
+
+.analysis-box h2{
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.analysis-box p{
+    line-height:1.8;
+    color:#cbd5e1;
+}
+
+.risk{
+    color:#ef4444;
+    font-size:28px;
+}
+
+.safe{
+    color:#22c55e;
+    font-size:28px;
+}
+
+.predict-btn{
+    width:100%;
+    padding:18px;
+    margin-top:25px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.predict-btn:hover{
+    opacity:0.9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>CareVision AI Dashboard</h1>
+
+    <!-- TOP CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Total Patients</h2>
+            <p>{{ total_patients }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Healthy Cases</h2>
+            <p>{{ healthy }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Risk Cases</h2>
+            <p>{{ risk_cases }}</p>
+        </div>
+
+    </div>
+
+    <!-- ANALYTICS SECTION -->
+
+    <div class="analytics">
+
+        <!-- SMALL CHART -->
+
+        <div class="chart-box">
+
+            <canvas id="myChart"></canvas>
+
+        </div>
+
+        <!-- AI ANALYSIS -->
+
+        <div class="analysis-box">
+
+            <h2>AI Prediction Analysis</h2>
+
+            <p>
+                CareVision AI continuously analyzes healthcare
+                data patterns to identify potential heart disease
+                risks and improve preventive healthcare support.
+            </p>
+
+            <p class="safe">
+                Healthy Probability: 65%
+            </p>
+
+            <p class="risk">
+                Risk Probability: 35%
+            </p>
+
+            <p>
+                AI Insights:
+                <br><br>
+
+                • Cholesterol monitoring recommended
+                <br>
+
+                • Regular cardiovascular screening advised
+                <br>
+
+                • Maintain healthy exercise routine
+            </p>
+
+            <a href="/heart">
+
+                <button class="predict-btn">
+                    Start AI Prediction
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+
+    type: 'doughnut',
+
+    data: {
+
+        labels: ['Healthy', 'Risk'],
+
+        datasets: [{
+
+            data: [65, 35],
+
+            backgroundColor: [
+                '#38bdf8',
+                '#ef4444'
+            ]
+
+        }]
+    },
+
+    options: {
+
+        responsive:true,
+
+        maintainAspectRatio:true,
+
+        plugins:{
+            legend:{
+                labels:{
+                    color:'white'
+                }
+            }
+        }
+    }
+
+});
+
+</script>
+
+</body>
+</html>

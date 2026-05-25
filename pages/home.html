@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>CareVision AI</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="hero">
+
+    <h1>CareVision AI</h1>
+
+    <p>
+        Intelligent Heart Disease Analytics Platform
+    </p>
+
+    <img src="{{ url_for('static', filename='heart.png') }}"
+    class="heart-img">
+
+    <div class="buttons">
+
+        <a href="/dashboard">
+            <button>Open AI Dashboard</button>
+        </a>
+
+        <a href="/heart">
+            <button>Start Prediction</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
